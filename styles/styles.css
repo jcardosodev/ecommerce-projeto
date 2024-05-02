@@ -218,4 +218,49 @@ main{
   color: #ffffff;
 }
 
+.carrinho_compra{
+ display: flex;  
+ flex-direction: column;
+ gap: 2rem;
+ position: absolute;  
+ top: 82px;
+ right: 0;
+ padding: 1rem;
+ height: auto;
+ background-color: rgba(25, 255, 255, 0.5);
+ overflow-y: scroll;
+}
 
+.carrinho_compra p {
+  margin-bottom: 1rem;
+  white-space: wrap;
+}
+
+
+.carrinho_itens{
+  display: flex;
+  justify-content: space-between;
+  width: 350px;
+  background-color: #EAEEEF;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, .8);
+  padding: 1rem;
+  align-items: center;
+  gap: 1rem;
+ 
+}
+
+.carrinho_itens img{
+ width: 60px;
+ height: 60px;
+}
+
+.carrinho_info_01{
+  flex-direction: column;
+  display: flex;
+  width: 100%;
+}
+.carrinho_info_02{
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
