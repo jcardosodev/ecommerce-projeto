@@ -30,45 +30,23 @@
       </div>
       <div class="nav_logos">
         <input type="text">
-        <img src="/assets/favorito.png" alt="">
-        <img src="/assets/carrinho.png" alt="">
+        <button><img src="/assets/favorito.png" alt=""></button>
+        <button id="mostrarCarrinho"><img src="/assets/carrinho.png" alt=""></button>
+
       </div>
-      <aside>
-        <div class="carrinho_compra">
-          <div class="carrinho_itens">
-            <img src="/assets/air_jordan.png" alt="">
-            <div class="carrinho_info_01">
-              <div>
-                <p>Tênis Air Jordan 1 Mid Masculino aaaaaaa</p>
-                <p>Tamanho: 46</p>
-              </div>
-              <div class="carrinho_info_02">
-                <p>Total: 500,00</p>
-                <p>quantidade</p>
-              </div>
-            </div>
-          </div>
-          <div class="carrinho_itens">
-            <img src="/assets/air_jordan.png" alt="">
-            <div class="carrinho_info_01">
-              <div>
-                <p>Tênis Air Jordan 1 Mid Masculino</p>
-                <p>Tamanho: 46</p>
-              </div>
-              <div class="carrinho_info_02">
-                <p>Total: 500,00</p>
-                <p>quantidade</p>
-              </div>
-            </div>
-          </div>
-      </aside>
-      </main>
     </nav>
     <div class="flex">
       <div class="flex_container">
         <img class="slide" src="/assets/banner_nike.png" alt="Banner Nike">
       </div>
     </div>
+
+    <aside id="carrinho" class="carrinho_escondido">
+
+      <div id="cart-items" class="carrinho_compra">
+
+      </div>
+    </aside>
   </header>
   <main>
     <section class="main_destaque">
@@ -108,39 +86,39 @@
     </section>
 
 
+  </main>
+  <footer>
+    <section class="footerSection">
+      <div>
+        <img class="logoFooter" src="./assets/imgFooter/logoWhiteSmokeBG.png" alt="logo">
+        <strong>
+          <p class="fraseImpacto">"Passos que elevam seu estilo a um novo patamar de sofisticação"</p>
+        </strong>
+      </div>
+      <div class="contato">
+        <ul>
+          <li>
+            <h3>Assine nossa Newsletter</h3>
+          </li>
+          <li><input type="text"></li>
+          <li><button class="buttonfooter">Enviar Email</button></li>
+        </ul>
+      </div>
+      <div class="redesocial">
+        <h3>Follow Royal Reserve</h3>
+        <hr>
+        <ul>
+          <li><a href="#Instagram"><img src="./assets/imgFooter/instagram.png" alt="Insta"></a></li>
+          <li><a href="#Facebook"><img src="./assets/imgFooter/facebook.png" alt="Face"></a></li>
+          <li><a target="_blank" href="https://github.com/jcardosodev/ecommerce-projeto"><img src="./assets/imgFooter/github.png" alt="Git"></a></li>
+        </ul>
+      </div>
+    </section>
+  </footer>
 
-    <footer>
-      <section class="footerSection">
-        <div>
-          <img class="logoFooter" src="./assets/imgFooter/logoWhiteSmokeBG.png" alt="logo">
-          <strong>
-            <p class="fraseImpacto">"Passos que elevam seu estilo a um novo patamar de sofisticação"</p>
-          </strong>
-        </div>
-        <div class="contato">
-          <ul>
-            <li>
-              <h3>Assine nossa Newsletter</h3>
-            </li>
-            <li><input type="text"></li>
-            <li><button class="buttonfooter">Enviar Email</button></li>
-          </ul>
-        </div>
-        <div class="redesocial">
-          <h3>Follow Royal Reserve</h3>
-          <hr>
-          <ul>
-            <li><a href="#Instagram"><img src="./assets/imgFooter/instagram.png" alt="Insta"></a></li>
-            <li><a href="#Facebook"><img src="./assets/imgFooter/facebook.png" alt="Face"></a></li>
-            <li><a target="_blank" href="https://github.com/jcardosodev/ecommerce-projeto"><img src="./assets/imgFooter/github.png" alt="Git"></a></li>
-          </ul>
-        </div>
-      </section>
-    </footer>
-
-    <script type="module" src="/scripts/script.js"></script>
-    <script type="module" src="/scripts/carrinho.js"></script>
-    <script type="module" src="/scripts/listaCarinho.js"></script>
+  <script type="module" src="/scripts/script.js"></script>
+  <script type="module" src="/scripts/carrinho.js"></script>
+  <script type="module" src="/scripts/listaCarinho.js"></script>
 
 </body>
 

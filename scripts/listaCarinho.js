@@ -1,35 +1,60 @@
-// carrinho.js
-
 // Função para exibir os itens do carrinho
 function showCart() {
   // Obter o carrinho do localStorage
   const cart = JSON.parse(localStorage.getItem('cart'));
-  const cartItems = document.getElementById('carrinhoCompra');
+  const cartItems = document.getElementById('cart-items');
   const totalElement = document.getElementById('total');
 
   // Verificar se há itens no carrinho
-  if (cart && cart.length > 0) {
+  if (cart) {
     // Limpar o conteúdo anterior
     cartItems.innerHTML = '';
 
     // Variável para calcular o total
-    let total = 0;
 
     // Loop pelos itens do carrinho
-    cart.forEach((item) => {
-      // Criar um elemento de lista para cada item
-      const listItem = document.createElement('li');
-      listItem.textContent = `${item.name} - R$ ${item.price}`;
 
-      // Adicionar o item à lista de itens do carrinho
-      cartItems.appendChild(listItem);
+    const total = cart
+      .map(({ price }) => +price)
+      .reduce((acc, item) => acc + item, 0)
+      .toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
 
-      // Adicionar o preço do item ao total
-      total += parseFloat(item.price);
-    });
+    const carrinho = `<div class="carrinho_itens">
+    <h3>Subtotal</h3>
+    <span>${subTotal}</span>
+    <button>Finalizar Compra</button>
+  </div>`;
 
+    const carrinhoItens = cart.map(
+      (item) =>
+        `<div class="carrinho_itens">
+          <img src="/assets/air_jordan.png" alt="">
+          <div class="carrinho_info_01">
+              <div>
+                  <p>${item.name}</p>
+                  <p>Tamanho: ${item.tamanho}</p>
+              </div>
+              <div class="carrinho_info_02">
+                  <p id="${item.price}" class="help">Preço: ${item.price}</p>
+                  <div class="quantidade">
+                      <button class="diminuir">-</button>
+                      <input type="text" class="contador" value="1">
+                      <button class="aumentar">+</button>
+                  </div>
+              </div>
+          </div>
+      </div>`,
+    );
+
+    cartItems.innerHTML = carrinho + carrinhoItens.join('');
+    showQuantidade();
+
+    console.log(total);
+
+    /*
     // Exibir o total
     totalElement.textContent = `Total: R$ ${total.toFixed(2)}`;
+*/
   } else {
     // Se o carrinho estiver vazio, exibir uma mensagem
     cartItems.innerHTML = '<li>Carrinho vazio</li>';
@@ -42,6 +67,7 @@ window.addEventListener('DOMContentLoaded', showCart);
 
 // Botão para finalizar compra e limpar carrinho
 const checkoutBtn = document.getElementById('checkout-btn');
+/*
 checkoutBtn.addEventListener('click', function () {
   // Limpar o carrinho
   localStorage.removeItem('cart');
@@ -50,7 +76,8 @@ checkoutBtn.addEventListener('click', function () {
   // Informar ao usuário que a compra foi finalizada
   alert('Compra finalizada! O carrinho foi limpo.');
 });
-
+*/
+/*
 // Botão para limpar o carrinho sem finalizar a compra
 const clearCartBtn = document.getElementById('clear-cart-btn');
 clearCartBtn.addEventListener('click', function () {
@@ -59,3 +86,38 @@ clearCartBtn.addEventListener('click', function () {
   // Atualizar a exibição do carrinho
   showCart();
 });
+*/
+
+function showQuantidade() {
+  const botoesAumentar = document.querySelectorAll('.aumentar');
+  const botoesDiminuir = document.querySelectorAll('.diminuir');
+
+  botoesAumentar.forEach(function (botaoAumentar) {
+    botaoAumentar.addEventListener('click', function () {
+      const contador = botaoAumentar.parentElement.querySelector('.contador');
+      contador.value = parseInt(contador.value) + 1;
+
+      const div = botaoAumentar
+        .closest('.carrinho_itens')
+        .querySelector('.carrinho_info_02 > p');
+      const valorPriamrio = +div.getAttribute('id');
+      div.innerHTML = `Preço: ${valorPriamrio * contador.value} `;
+    });
+  });
+
+  botoesDiminuir.forEach(function (botaoDiminuir) {
+    botaoDiminuir.addEventListener('click', function () {
+      const contador = botaoDiminuir.parentElement.querySelector('.contador');
+      if (contador.value > 1) {
+        contador.value = parseInt(contador.value) - 1;
+        const div = botaoDiminuir
+          .closest('.carrinho_itens')
+          .querySelector('.carrinho_info_02 > p');
+
+        const valorPriamrio = +div.getAttribute('id');
+        const valorAtual = +div.innerHTML.replace('Preço: ', '');
+        div.innerHTML = `Preço: ${valorAtual - valorPriamrio} `;
+      }
+    });
+  });
+}

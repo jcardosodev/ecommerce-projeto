@@ -1,9 +1,5 @@
 import { listProduct } from './produtos.js';
 
-const nike = document.getElementById('nike');
-const adidas = document.getElementById('adidas');
-const puma = document.getElementById('puma');
-const vans = document.getElementById('vans');
 const marcas = document.querySelectorAll('.btn_marcas');
 
 function Produtos() {
@@ -43,7 +39,8 @@ function Produtos() {
                     }" data-price="${produto.preco}">Comprar</button>
                   </div>
                 </div>
-        </div>`,
+        </div>
+        `,
     );
     produtosElementos.innerHTML = arrayProdutos.join('');
   }
@@ -108,3 +105,13 @@ marcas.forEach((botao) => {
   });
 });
 */
+
+function showModal() {
+  carrinho.classList.toggle('carrinho_escondido');
+}
+
+//-------------------------------------------------------------
+const botaoMostrarCarrinho = document.getElementById('mostrarCarrinho');
+const carrinho = document.getElementById('carrinho');
+
+botaoMostrarCarrinho.addEventListener('click', showModal);

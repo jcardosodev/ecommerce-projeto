@@ -66,7 +66,12 @@ export const listProduct = [
   {
     id: 7,
     marca: 'Nike',
-    src: 'assets/Infantil/airJordanInfantil.png',
+    src: [
+      'assets/Infantil/airJordanInfantil.png',
+      'assets/Infantil/airJordanInfantil.png',
+      'assets/Infantil/airJordanInfantil.png',
+      'assets/Infantil/airJordanInfantil.png',
+    ],
     nome: 'Air Jordan Infantil',
     estilo: 'Infantil',
     tamanho: [33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46],
@@ -88,7 +93,12 @@ export const listProduct = [
   {
     id: 1,
     marca: 'Adidas',
-    src: 'assets/Adidas/T╥NIS ADIZERO TAKUMI SEN 9 (1).png',
+    src: [
+      'assets/Adidas/T╥NIS ADIZERO TAKUMI SEN 9 (1).png',
+      'assets/Adidas/T╥NIS ADIZERO TAKUMI SEN 9 (2).png',
+      'assets/Adidas/T╥NIS ADIZERO TAKUMI SEN 9 (3).png',
+      'assets/Adidas/T╥NIS ADIZERO TAKUMI SEN 9 (4).png',
+    ],
     nome: 'Tênis Adizero Takumi Sen 9 Masculino',
     estilo: 'Corrida',
     tamanho: [33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46],
