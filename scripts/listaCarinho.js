@@ -10,25 +10,21 @@ function showCart() {
     // Limpar o conteúdo anterior
     cartItems.innerHTML = '';
 
-    // Variável para calcular o total
-
-    // Loop pelos itens do carrinho
-
     const total = cart
       .map(({ price }) => +price)
-      .reduce((acc, item) => acc + item, 0)
-      .toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+      .reduce((acc, item) => acc + item, 0);
+    //.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
 
     const carrinho = `<div class="carrinho_itens">
     <h3>Subtotal</h3>
-    <span>${subTotal}</span>
-    <button>Finalizar Compra</button>
+    <span id="total">${total}</span>
+    <a class="finalizarcompra" href="./checkout.html" class="carrinho_finalizar">Finalizar Compra</a>
   </div>`;
 
     const carrinhoItens = cart.map(
       (item) =>
         `<div class="carrinho_itens">
-          <img src="/assets/air_jordan.png" alt="">
+          <img src=${item.img} alt="">
           <div class="carrinho_info_01">
               <div>
                   <p>${item.name}</p>
@@ -48,8 +44,7 @@ function showCart() {
 
     cartItems.innerHTML = carrinho + carrinhoItens.join('');
     showQuantidade();
-
-    console.log(total);
+    finalizarCompra();
 
     /*
     // Exibir o total
@@ -100,8 +95,14 @@ function showQuantidade() {
       const div = botaoAumentar
         .closest('.carrinho_itens')
         .querySelector('.carrinho_info_02 > p');
-      const valorPriamrio = +div.getAttribute('id');
-      div.innerHTML = `Preço: ${valorPriamrio * contador.value} `;
+      const valorPrimario = +div.getAttribute('id');
+      div.innerHTML = `Preço: ${valorPrimario * contador.value} `;
+      let subtotal = document.getElementById('total');
+
+      let total = +subtotal.innerText;
+      console.log(total, 'total');
+      subtotal.innerText = valorPrimario + total;
+      console.log(subtotal);
     });
   });
 
@@ -114,10 +115,24 @@ function showQuantidade() {
           .closest('.carrinho_itens')
           .querySelector('.carrinho_info_02 > p');
 
-        const valorPriamrio = +div.getAttribute('id');
+        const valorPrimario = +div.getAttribute('id');
         const valorAtual = +div.innerHTML.replace('Preço: ', '');
-        div.innerHTML = `Preço: ${valorAtual - valorPriamrio} `;
+        div.innerHTML = `Preço: ${valorAtual - valorPrimario} `;
+
+        let subtotal = document.getElementById('total');
+
+        let total = +subtotal.innerText;
+        console.log(total, 'total');
+        subtotal.innerText = total - valorPrimario;
       }
     });
+  });
+}
+
+function finalizarCompra() {
+  let finalizarCompra = document.querySelector('.finalizarcompra');
+  finalizarCompra.addEventListener('click', () => {
+    let subtotal = document.getElementById('total');
+    localStorage.setItem('subtotal', +subtotal.innerText);
   });
 }

@@ -3,12 +3,18 @@ function addToCart(event) {
   // Obter o nome e o preço do produto do atributo 'data' do botão
   const name = event.target.dataset.name;
   const price = event.target.dataset.price;
+  const img = event.target.dataset.img;
 
   // Criar um objeto representando o item a ser adicionado ao carrinho
+  if (!dados) {
+    alert('Por favor, selecione um tamanho.');
+    return;
+  }
   const item = {
     name: name,
     price: price,
     tamanho: dados,
+    img: img,
   };
 
   console.log(item);
@@ -42,6 +48,7 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 let dados = '';
+
 const tamanhos = document.querySelectorAll('.tamanho01');
 tamanhos.forEach((botao, index) => {
   botao.addEventListener('click', (event) => {

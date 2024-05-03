@@ -5,12 +5,6 @@ const marcas = document.querySelectorAll('.btn_marcas');
 function Produtos() {
   const produtosIniciais = listProduct;
 
-  listProduct.forEach((teste) => {
-    if (teste.marca == 'Nike' && teste.id == 1) {
-      console.log(teste.nome);
-    }
-  });
-
   function exibirProdutos(produtos) {
     const produtosElementos = document.getElementById('lista_produtos');
 
@@ -18,11 +12,13 @@ function Produtos() {
       (produto) =>
         ` <div class="produto">
       <div class="container_img">
-        <img class="produto_img" src="${produto.src}" alt="">
+        <img class="produto_img" src="${produto.src[0]}" alt="">
       </div>
+     <div class="produto_info">
         <h2 class="nome_marca">${produto.nome}</h2>
         <p>${produto.estilo}</p>
         <p>${produto.pagamento}</p>
+    </div>   
         <div class="tamanhos">
                 <div class="tamanhos_info">
                     <h2>Tamanhos</h2>
@@ -36,7 +32,9 @@ function Produtos() {
                     </ul>
                     <button class="btn_comprar" data-name="${
                       produto.nome
-                    }" data-price="${produto.preco}">Comprar</button>
+                    }" data-price="${produto.preco}" data-img="${
+          produto.src[0]
+        }" >Comprar</button>
                   </div>
                 </div>
         </div>
@@ -46,8 +44,23 @@ function Produtos() {
   }
   exibirProdutos(produtosIniciais);
 
+  const nav = document.querySelectorAll('.links > a');
+  nav.forEach((botao) => {
+    botao.addEventListener('click', (event) => {
+      event.preventDefault();
+      const produtosFiltrados = listProduct.filter(
+        (produto) => produto.genero === botao.innerText,
+      );
+      if (produtosFiltrados.length === 0) {
+      } else {
+        exibirProdutos(produtosFiltrados);
+      }
+    });
+  });
+
   marcas.forEach((botao) => {
-    botao.addEventListener('click', () => {
+    botao.addEventListener('click', (event) => {
+      event.preventDefault();
       const produtosFiltrados = listProduct.filter(
         (produto) => produto.marca === botao.innerText,
       );
@@ -57,61 +70,15 @@ function Produtos() {
 }
 Produtos();
 
-/*
-const productsMenu = {
-  prod01: { name: 'camisa', value: 100 },
-  prod02: { name: 'calça', value: 200 },
-  prod03: { name: 'boné', value: 50 },
-};
-
-const cart = [];
-
-function addProductToCart(product, amount) {
-  for (let i = 0; i < amount; i++) {
-    cart.push(product);
-  }
-}
-
-addProductToCart(productsMenu['prod01'], 4);
-addProductToCart(productsMenu['prod02'], 2);
-addProductToCart(productsMenu['prod03'], 1);
-
-function getCartTotal(userCart) {
-  return userCart.reduce((acc, next) => {
-    return (acc += next.value);
-  }, 0);
-}
-
-getCartTotal(cart);
-
-console.log(getCartTotal(cart));
-
-// 850
-
-const compra = document.querySelector('.btn_comprar');
-const nomeMarcar = document.querySelector('.nome_marca');
-
-compra.addEventListener('click', () => {
-  //console.log(nomeMarcar.innerText);
-});
-
-
-marcas.forEach((botao) => {
-  botao.addEventListener('click', () => {
-    const produtosFiltrados = listProduct.filter(
-      (produto) => produto.marca === botao.innerText,
-    );
-    exibirProdutos(produtosFiltrados);
-  });
-});
-*/
-
 function showModal() {
   carrinho.classList.toggle('carrinho_escondido');
+  carrinhoCompra.classList.toggle('exibir');
 }
 
 //-------------------------------------------------------------
 const botaoMostrarCarrinho = document.getElementById('mostrarCarrinho');
 const carrinho = document.getElementById('carrinho');
+const carrinhoCompra = document.querySelector('.carrinho_compra');
 
 botaoMostrarCarrinho.addEventListener('click', showModal);
+//--------------------------------------------------------------

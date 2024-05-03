@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="/styles/styles.css">
   <link rel="stylesheet" href="stylesFooter.css">
 
+
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
   <title>Document</title>
 </head>
@@ -16,30 +17,33 @@
   <header>
 
     <nav class="navigation">
-      <div>
-        <img class="logo" src="./assets/Logo.jfif" alt="Logo">
-      </div>
-      <div>
+
+
+      <a href="/index.html"> <img class="logo" src="./assets/Logo.jfif" alt="Logo"></a>
+
+      <div class="nav_links_container">
         <ul class="nav_links">
-          <li class="links"><a href="">Lançamento</a></li>
-          <li class="links"><a href="">Ofertas</a></li>
-          <li class="links"><a href="">Mulheres</a></li>
-          <li class="links"><a href="">Homens</a></li>
-          <li class="links"><a href="">Infantil</a></li>
+          <li class="links"><a href="#lançamento">Lançamento</a></li>
+          <li class="links"><a href="#lista_produtos">Ofertas</a></li>
+          <li class="links"><a href="#lista_produtos">Feminino</a></li>
+          <li class="links"><a href="#lista_produtos">Masculino</a></li>
+          <li class="links"><a href="#lista_produtos">Infantil</a></li>
         </ul>
       </div>
       <div class="nav_logos">
         <input type="text">
-        <button><img src="/assets/favorito.png" alt=""></button>
         <button id="mostrarCarrinho"><img src="/assets/carrinho.png" alt=""></button>
-
       </div>
     </nav>
+
     <div class="flex">
       <div class="flex_container">
-        <img class="slide" src="/assets/banner_nike.png" alt="Banner Nike">
+        <img class="slide" src="/assets/bannerPuma.png" alt="Banner Nike">
+        <img class="slide" src="/assets/bannerDaVans.png" alt="Banner Nike">
+        <img class="slide adidas" src="/assets/banner_tenis_adidas.png" alt="Banner Nike">
       </div>
     </div>
+
 
     <aside id="carrinho" class="carrinho_escondido">
 
@@ -49,28 +53,31 @@
     </aside>
   </header>
   <main>
-    <section class="main_destaque">
+
+    <h2 class="destaque_title">Lançamentos</h2>
+    <section class="main_destaque" id="lançamento">
       <div class="destaque">
         <div class="destaque_itens">
-          <img src="/assets/air_jordan.png" alt="">
+          <img class="destaque_itens_img" src="/assets/Nike/airJordan1.png" alt="">
           <h2>Tênis Air Jordan 1 Mid Masculino</h2>
           <p>Casual</p>
           <p>R$ 949,99 no Pix 5% off ou R$ 999,99 em até 9x sem juros</p>
         </div>
         <div class="destaque_itens">
-          <img src="/assets/air_jordan.png" alt="">
+          <img class="destaque_itens_img" src="/assets/Adidas/T╥NIS ADIZERO ROSE 1.5 RESTOMOD (2).png" alt="">
           <h2>Tênis Air Jordan 1 Mid Masculino</h2>
           <p>Casual</p>
           <p>R$ 949,99 no Pix 5% off ou R$ 999,99 em até 9x sem juros</p>
         </div>
         <div class="destaque_itens">
-          <img src="/assets/air_jordan.png" alt="">
+          <img class="destaque_itens_img" src="/assets/Vans/T╥NIS SK8-HI VANS CHECKERBOARD DAY RED TRUE WHITE (4).png" alt="">
           <h2>Tênis Air Jordan 1 Mid Masculino</h2>
           <p>Casual</p>
           <p>R$ 949,99 no Pix 5% off ou R$ 999,99 em até 9x sem juros</p>
         </div>
       </div>
     </section>
+
     <section class="marca">
       <div class="marca_produtos">
         <button class="btn_marcas" id="nike">Nike</button>
@@ -80,7 +87,7 @@
       </div>
     </section>
 
-    <section class="produtos">
+    <section class="produtos" id="nav_produtos">
       <div id="lista_produtos">
       </div>
     </section>
@@ -116,9 +123,11 @@
     </section>
   </footer>
 
+
   <script type="module" src="/scripts/script.js"></script>
   <script type="module" src="/scripts/carrinho.js"></script>
   <script type="module" src="/scripts/listaCarinho.js"></script>
+  <script type="module" src="/scripts/checkoutCarrinho.js"></script>
 
 </body>
 
