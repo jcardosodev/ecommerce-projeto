@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles/reset.css">
+  <link rel="stylesheet" href="styles/styles.css">
+  <link rel="stylesheet" href="styles/stylesFooter.css">
+  <link rel="stylesheet" href="styles/checkout.css">
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+  <title>Checkout</title>
+
+</head>
+
+<header>
+  <nav class="navigation">
+    <div>
+      <a href="index.html">
+        <img class="logo" src="assets/Logo.jfif" alt="Logo">
+      </a>
+    </div>
+    <div>
+      <ul class="nav_links">
+        <li class="links"><a href="">Lançamento</a></li>
+        <li class="links"><a href="">Ofertas</a></li>
+        <li class="links"><a href="">Mulheres</a></li>
+        <li class="links"><a href="">Homens</a></li>
+        <li class="links"><a href="">Infantil</a></li>
+      </ul>
+    </div>
+    <div class="nav_logos">
+      <input type="text">
+      <img src="assets/favorito.png" alt="">
+      <img src="assets/carrinho.png" alt="">
+    </div>
+  </nav>
+</header>
+
+<body>
+
+  <div class="container">
+
+    <form action="" id="checkoutForm">
+
+      <div class="row">
+
+        <div class="col">
+
+          <h3 class="title">Contato</h3>
+
+          <div class="inputBox">
+            <span>Nome completo:</span>
+            <input type="text" name="fullName" placeholder="Digite aqui seu nome" required>
+          </div>
+          <div class="inputBox">
+            <span>Email:</span>
+            <input type="email" name="email" placeholder="exemplo@exemplo.com" required>
+          </div>
+          <div class="inputBox">
+            <span>Endereço:</span>
+            <input type="text" name="address" placeholder="Número, Rua e Bairro" required>
+          </div>
+          <div class="inputBox">
+            <span>Cidade:</span>
+            <input type="text" name="city" placeholder="Digite sua Cidade" required>
+          </div>
+
+          <div class="flex">
+            <div class="inputBox">
+              <span>UF:</span>
+              <input type="text" name="state" placeholder="SP" maxlength="2" required>
+            </div>
+            <div class="inputBox">
+              <span>CEP:</span>
+              <input type="text" name="cep" placeholder="12345-678" pattern="[0-9]{5}-[0-9]{3}" title="Insira um CEP válido" required>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="col">
+
+          <h3 class="title">Pagamento</h3>
+
+          <div class="inputBox">
+            <span>Métodos aceitos:</span>
+            <img src="assets/imgFooter/card_img.png" alt="">
+          </div>
+          <div class="inputBox">
+            <span>Nome no Cartão:</span>
+            <input type="text" name="cardName" placeholder="Digite o nome do portador" required>
+          </div>
+          <div class="inputBox">
+            <span>Número do Cartão:</span>
+            <input type="number" name="cardNumber" placeholder="1111 2222 3333 4444" pattern="[0-9]{4}[0-9]{4}[0-9]{4}[0-9]{4}" title="Insira um número de cartão válido" required>
+          </div>
+
+          <div class="inputBox">
+            <span>CPF do portador:</span>
+            <input type="text" id="cpf" name="cpf" placeholder="123.456.789-00" pattern="[0-9]{3}\.[0-9]{3}\.[0-9]{3}\-[0-9]{2}" title="Insira um CPF válido" required>
+          </div>
+          <div class="inputBox">
+            <span>Exp mês:</span>
+            <input type="text" name="expMonth" placeholder="janeiro" required>
+          </div>
+
+          <div class="flex">
+            <div class="inputBox">
+              <span>Exp ano:</span>
+              <input type="number" name="expYear" placeholder="2022" min="2022" required>
+            </div>
+            <div class="inputBox">
+              <span>CVV:</span>
+              <input type="number" name="cvv" placeholder="1234" required>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+      <button href="index.html" class="submit-btn" id="submit-btn">Finalizar compra</button>
+  </div>
+
+  </form>
+
+
+  </div>
+
+</body>
+
+<footer>
+  <section class="footerSection">
+    <div>
+      <img class="logoFooter" src="assets/imgFooter/logoWhiteSmokeBG.png" alt="logo">
+      <strong>
+        <p class="fraseImpacto">"Passos que elevam seu estilo a um novo patamar de sofisticação"</p>
+      </strong>
+    </div>
+    <div class="contato">
+      <ul>
+        <li>
+          <h3>Assine nossa Newsletter</h3>
+        </li>
+        <li><input type="email"></li>
+        <li><button class="buttonfooter">Enviar Email</button></li>
+      </ul>
+    </div>
+    <div class="redesocial">
+      <h3>Follow Royal Reserve</h3>
+      <hr>
+      <ul>
+        <li><a href="#Instagram"><img src="assets/imgFooter/instagram.png" alt="Insta"></a></li>
+        <li><a href="#Facebook"><img src="assets/imgFooter/facebook.png" alt="Face"></a></li>
+        <li><a target="_blank" href="https://github.com/jcardosodev/ecommerce-projeto"><img src="./assets/imgFooter/github.png" alt="Git"></a></li>
+      </ul>
+    </div>
+  </section>
+</footer>
+
+<script type="module" src="carrinho.js"></script>
+
+
+</html>
