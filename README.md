@@ -27,9 +27,9 @@ compras e página de checkout.
 
 # Observações:
 
-    Utilize boas práticas de desenvolvimento web,como separação
-    (HTML, CSS e Javascript em arquivos separados), comentários no
-    código para facilitar a compreensão e organização do projeto em diretórios.
+Utilize boas práticas de desenvolvimento web,como separação
+(HTML, CSS e Javascript em arquivos separados), comentários no
+código para facilitar a compreensão e organização do projeto em diretórios.
 
 # Colaboradores
 
